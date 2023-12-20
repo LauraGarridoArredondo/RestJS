@@ -1,3 +1,5 @@
+import { categoria } from '../../categoria/res/entities/categoria.entity'
+
 export class Re {
   id: number
   categoria: categoria
@@ -7,10 +9,4 @@ export class Re {
   imagen: string
   fecha_creacion: Date
   fecha_actualizacion: Date
-}
-
-export enum categoria {
-  Marvel = 'Marvel',
-  DC = 'DC',
-  Otros = 'Otros',
 }

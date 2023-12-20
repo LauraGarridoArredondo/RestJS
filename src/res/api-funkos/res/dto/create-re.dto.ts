@@ -1,27 +1,30 @@
-import { IsEnum, IsNotEmpty, IsNumber, IsString } from 'class-validator'
+import {
+  IsEnum,
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+  Max,
+  Min,
+} from 'class-validator'
 
-export enum categoria {
-  Marvel = 'Marvel',
-  DC = 'DC',
-  Otros = 'Otros',
-}
+import { categoria } from '../../categoria/res/entities/categoria.entity'
 
 export class CreateReDto {
-  @IsNotEmpty({ message: 'El nombre no es nulo' })
-  @IsString()
+  @IsNotEmpty({ message: 'El nombre no puede ir vacio' })
+  @IsString({ message: 'No adjunte numeros en el nombre' })
   nombre: string
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'El precio no puede ir vacio' })
   @IsNumber()
+  @Min(0, { message: 'Solo se puede aceptar numeros positivos' })
+  @Max(100, { message: 'El precio maximo es hasta 100' })
   precio: number
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'La categoria no es nulo' })
   @IsEnum(categoria)
   categoria: categoria
-  @IsNotEmpty()
+  @IsNotEmpty({ message: 'La cantidad no puede estar vacio' })
   @IsNumber()
   cantidad: number
-  @IsNotEmpty()
-  @IsString()
+  @IsNotEmpty({ message: 'La imagen no puede estar vacio' })
+  @IsString({ message: 'La imagen es de tipo String' })
   imagen: string
-  fecha_creacion: Date
-  fecha_actualizacion: Date
 }

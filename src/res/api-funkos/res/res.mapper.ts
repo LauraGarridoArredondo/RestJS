@@ -12,8 +12,6 @@ export class FunkoMapper {
     dto.precio = res.precio
     dto.cantidad = res.cantidad
     dto.imagen = res.imagen
-    dto.fecha_creacion = res.fecha_creacion
-    dto.fecha_actualizacion = res.fecha_actualizacion
     return dto
   }
 
