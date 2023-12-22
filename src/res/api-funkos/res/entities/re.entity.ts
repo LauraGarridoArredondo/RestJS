@@ -1,8 +1,8 @@
-import { categoria } from '../../categoria/res/entities/categoria.entity'
+import {CategoriaCreateDTO} from "../../categoria/res/dto/CategoriaCreateDTO";
 
 export class Re {
   id: number
-  categoria: categoria
+  categoria: CategoriaCreateDTO
   nombre: string
   precio: number
   cantidad: number

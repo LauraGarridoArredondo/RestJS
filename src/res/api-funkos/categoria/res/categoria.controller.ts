@@ -12,8 +12,8 @@ import {
   HttpCode,
 } from '@nestjs/common'
 import { CategoriaService } from './categoria.service'
-import { CreateReDto } from './dto/create-re.dto'
-import { UpdateReDto } from './dto/update-re.dto'
+import { CategoriaCreateDTO } from './dto/CategoriaCreateDTO'
+import { CategoriaUpdateDTO } from './dto/CategoriaUpdateDTO'
 import { categoria } from './entities/categoria.entity'
 import { AlwaysAllowGuard } from '../../Guards/AlwaysAllowGuard'
 

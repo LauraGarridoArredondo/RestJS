@@ -4,10 +4,11 @@ import {
   IsNumber,
   IsString,
   Max,
-  Min,
+  Min, ValidateNested,
 } from 'class-validator'
 
 import { categoria } from '../../categoria/res/entities/categoria.entity'
+import {CategoriaCreateDTO} from "../../categoria/res/dto/CategoriaCreateDTO";
 
 export class CreateReDto {
   @IsNotEmpty({ message: 'El nombre no puede ir vacio' })
@@ -18,9 +19,9 @@ export class CreateReDto {
   @Min(0, { message: 'Solo se puede aceptar numeros positivos' })
   @Max(100, { message: 'El precio maximo es hasta 100' })
   precio: number
-  @IsNotEmpty({ message: 'La categoria no es nulo' })
-  @IsEnum(categoria)
-  categoria: categoria
+  @ValidateNested()
+  @IsNotEmpty({ message: 'La categoría no puede ir vacía' })
+  categoria: CategoriaCreateDTO;
   @IsNotEmpty({ message: 'La cantidad no puede estar vacio' })
   @IsNumber()
   cantidad: number

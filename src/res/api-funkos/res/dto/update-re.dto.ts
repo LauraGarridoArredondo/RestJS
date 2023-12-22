@@ -1,12 +1,10 @@
 import { PartialType } from '@nestjs/mapped-types'
 import { CreateReDto } from './create-re.dto'
-import { IsEnum, IsNumber, IsString } from 'class-validator'
-import { categoria } from '../../categoria/res/entities/categoria.entity'
+import {IsNumber, IsString, ValidateNested} from 'class-validator'
+import {CategoriaCreateDTO} from "../../categoria/res/dto/CategoriaCreateDTO";
 
 export class UpdateReDto extends PartialType(CreateReDto) {
   id: number
-  @IsEnum(categoria)
-  categoria: categoria
   @IsString({ message: 'Evite escribir numeros en el nombre' })
   nombre: string
   @IsNumber()
@@ -15,4 +13,6 @@ export class UpdateReDto extends PartialType(CreateReDto) {
   cantidad: number
   @IsString({ message: 'Por ahora evite los numeros' })
   imagen: string
+  @ValidateNested()
+  categoria: CategoriaCreateDTO;
 }
