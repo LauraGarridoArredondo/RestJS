@@ -7,5 +7,5 @@ export class CategoriaCreateDTO {
   @IsNotEmpty({ message: 'El estado no puede ir vacío' })
   @IsBoolean({ message: 'El estado debe ser un valor booleano' })
   isactive: boolean
-  categoriaid: number;
+  categoriaid: number
 }

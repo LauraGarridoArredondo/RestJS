@@ -1,7 +1,7 @@
 import { PartialType } from '@nestjs/mapped-types'
 import { CreateReDto } from './create-re.dto'
-import {IsNumber, IsString, ValidateNested} from 'class-validator'
-import {CategoriaCreateDTO} from "../../categoria/res/dto/CategoriaCreateDTO";
+import { IsNumber, IsString, ValidateNested } from 'class-validator'
+import { CategoriaCreateDTO } from '../../categoria/res/dto/CategoriaCreateDTO'
 
 export class UpdateReDto extends PartialType(CreateReDto) {
   id: number
@@ -14,5 +14,5 @@ export class UpdateReDto extends PartialType(CreateReDto) {
   @IsString({ message: 'Por ahora evite los numeros' })
   imagen: string
   @ValidateNested()
-  categoria: CategoriaCreateDTO;
+  categoria: CategoriaCreateDTO
 }

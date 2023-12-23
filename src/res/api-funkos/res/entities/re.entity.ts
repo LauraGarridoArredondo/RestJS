@@ -1,5 +1,5 @@
-import {CategoriaCreateDTO} from "../../categoria/res/dto/CategoriaCreateDTO";
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import { CategoriaCreateDTO } from '../../categoria/res/dto/CategoriaCreateDTO'
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
 @Entity('funkos')
 export class Re {
   @PrimaryGeneratedColumn()

@@ -1,4 +1,4 @@
-import {Injectable, Logger, NotFoundException} from '@nestjs/common'
+import { Injectable, Logger, NotFoundException } from '@nestjs/common'
 import { categoria } from './entities/categoria.entity'
 
 @Injectable()
@@ -75,20 +75,20 @@ export class CategoriaService {
   deleteCategoria(id: number): Promise<void> {
     return new Promise((resolve, reject) => {
       try {
-        this.logger.log(`Eliminando categoría con ID: ${id}`);
-        const index = this.categorias.findIndex((c) => c.categoriaid === id);
+        this.logger.log(`Eliminando categoría con ID: ${id}`)
+        const index = this.categorias.findIndex((c) => c.categoriaid === id)
         if (index !== 1) {
-          this.categorias.splice(index, 1);
-          resolve();
+          this.categorias.splice(index, 1)
+          resolve()
         } else {
-          reject(new NotFoundException(`Categoría con ID ${id} no encontrada`));
+          reject(new NotFoundException(`Categoría con ID ${id} no encontrada`))
         }
       } catch (error) {
         this.logger.error(
-            `Error al eliminar la categoría con ID ${id}: ${error.message}`,
-        );
-        reject(error);
+          `Error al eliminar la categoría con ID ${id}: ${error.message}`,
+        )
+        reject(error)
       }
-    });
+    })
   }
 }
